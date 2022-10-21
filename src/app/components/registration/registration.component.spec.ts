@@ -35,7 +35,7 @@ describe('RegistrationComponent', () => {
     expect(password.valid).toBeFalsy();
   })
   it('confirmPassword field validity', () => {
-    let confirmPassword = component.registerForm.controls["confirmPassword"];
+    let confirmPassword = component.registerForm.controls["confirm_password"];
     expect(confirmPassword.valid).toBeFalsy();
   })
 
