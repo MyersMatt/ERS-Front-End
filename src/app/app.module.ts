@@ -6,6 +6,7 @@ import {RegistrationComponent} from './components/registration/registration.comp
 import {FormsModule} from "@angular/forms";
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {CustomValidatorsDirective} from './directives/custom-validators.directive';
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import {CustomValidatorsDirective} from './directives/custom-validators.directiv
     BrowserModule,
     FormsModule,
     BrowserAnimationsModule,
-    MatCardModule
+    MatCardModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -26,6 +26,6 @@ export class RegistrationComponent implements OnInit {
   }
 
   onSubmit(e: any) {
-    if (this.registerForm.valid) this.authService.register(this.registerForm.value.email || "", this.registerForm.value.username || "", this.registerForm.value.email || "");
+    this.authService.register(this.registerForm.value.email || "", this.registerForm.value.username || "", this.registerForm.value.email || "");
   }
 }
