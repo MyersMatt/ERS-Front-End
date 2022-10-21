@@ -22,7 +22,7 @@
         <mat-label for="confirmPassword">Confirm Password</mat-label>
 <!--        <input matInput type="password" name="confirmPassword" [formControl]="registerFormGroup.controls.confirmPassword" required>-->
         <input matInput type="password" id="confirmPassword" formControlName="confirmPassword" required>
-        <mat-error>Password Mismatch</mat-error>
+        <mat-error *ngIf="registerForm.controls.confirmPassword.hasError('mismatch')">Password Mismatch</mat-error>
       </mat-form-field>
         <mat-card-actions align="end">
           <!--    <button mat-raised-button type="submit" [disabled]="!registerForm.valid" >Submit</button>-->
