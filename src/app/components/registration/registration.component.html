@@ -1,26 +1,33 @@
-<div class="login-wrapper">
-  <mat-card class="box">
+<mat-card class="register-box">
     <mat-card-header>
       <mat-card-title>Register</mat-card-title>
     </mat-card-header>
-    <form #registerForm="ngForm">
-      {{registerForm.value | json}}
-      <div class="form-group">
-        <label>Email</label>
-        <input class="form-control" name="email" ngModel type="text">
-      </div>
-      <div class="form-group">
-        <label>Username</label>
-        <input class="form-control" name="username" ngModel type="text">
-      </div>
-      <div class="form-group">
-        <label>Password</label>
-        <input class="form-control" name="password" ngModel type="password">
-      </div>
-      <div class="form-group">
-        <label>Confirm Password</label>
-        <input class="form-control" name="confirm_password" ngModel type="password">
-      </div>
-    </form>
-  </mat-card>
-</div>
+    <mat-card-content >
+      <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+      <mat-form-field class="form-group">
+        <mat-label for="email">Email</mat-label>
+        <input matInput id="email" formControlName="email" required>
+        <mat-hint>Valid Email Address: example@email.com</mat-hint>
+        <mat-error>This field is required</mat-error>
+      </mat-form-field>
+      <mat-form-field class="form-group" >
+        <mat-label for="username">Username</mat-label>
+        <input matInput id="username" formControlName="username" required >
+      </mat-form-field>
+      <mat-form-field class="form-group">
+        <mat-label for="password">Password</mat-label>
+        <input matInput id="password" type="password" formControlName="password" required>
+      </mat-form-field>
+      <mat-form-field class="form-group">
+        <mat-label for="confirmPassword">Confirm Password</mat-label>
+<!--        <input matInput type="password" name="confirmPassword" [formControl]="registerFormGroup.controls.confirmPassword" required>-->
+        <input matInput type="password" id="confirmPassword" formControlName="confirmPassword" required>
+        <mat-error>Password Mismatch</mat-error>
+      </mat-form-field>
+        <mat-card-actions align="end">
+          <!--    <button mat-raised-button type="submit" [disabled]="!registerForm.valid" >Submit</button>-->
+          <button mat-raised-button type="submit" [disabled]="!registerForm.valid">Submit</button>
+        </mat-card-actions>
+      </form>
+    </mat-card-content>
+</mat-card>

@@ -1,0 +1,17 @@
+.register-box{
+  min-width: 150px;
+  max-width: 300px;
+  width: 100%;
+}
+.form-group{
+  width: 100%;
+}
+input[type=text]{
+  padding: 10px;
+  margin: 10px 0;
+}
+
+.mat-raised-button{
+  background-color: darkslategray;
+  color: aliceblue;
+}

@@ -14,9 +14,9 @@ export class RegistrationComponent implements OnInit {
       email: new FormControl('', [Validators.email, Validators.required]),
       username: new FormControl('', Validators.required),
       password: new FormControl('', [Validators.pattern('^(?=.*[A-Z])(?=.*[0-9])(?=.*[a-z]).{8,}$'), Validators.required]),
-      confirm_password: new FormControl('', Validators.required)
+      confirmPassword: new FormControl('', Validators.required)
     },
-    [CustomValidatorsDirective.MatchValidator('password', 'confirm_password')]
+    [CustomValidatorsDirective.passwordMatchValidator('password', 'confirmPassword')]
   )
 
   constructor(private authService: AuthenticationService) {
@@ -25,7 +25,13 @@ export class RegistrationComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onSubmit(e: any) {
+  onSubmit() {
+    console.log("here")
+    console.log(this.registerForm.value);
     this.authService.register(this.registerForm.value.email || "", this.registerForm.value.username || "", this.registerForm.value.email || "");
+  }
+
+  submitForm() {
+
   }
 }

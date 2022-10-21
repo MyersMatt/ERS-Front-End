@@ -9,8 +9,9 @@ export class CustomValidatorsDirective {
   constructor() {
   }
 
-  static MatchValidator(p1: string, p2: string): ValidatorFn {
+  static passwordMatchValidator(p1: string, p2: string): ValidatorFn {
     return (control: AbstractControl): ValidationErrors | null => {
+      console.log("checking if passwords match")
       const password1 = control.get(p1);
       const password2 = control.get(p2);
       return password1 !== password2 ? {mismatch: true} : null;
